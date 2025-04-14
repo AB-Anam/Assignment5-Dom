@@ -23,5 +23,11 @@ buttons.forEach(button => {
 
     button.classList.remove('bg-gray-200');
     button.classList.add('bg-barn-primary');
+
+    if (button.id === 'btn1') {
+        window.location.href = './index.html';
+      } else if (button.id === 'btn2') {
+        window.location.href = './history.html';
+      }
   });
 });
