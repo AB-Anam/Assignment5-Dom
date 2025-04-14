@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        .font-lexend
+        {
+            font-family: "Lexend", sans-serif;
+        }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+        theme: {
+            extend: {
+            colors: {
+                'barn-primary': '#ABEF5F',
+                'nav-bg' : '#F9F7F3',
+            }
+            }
+        }
+        }
+    </script>
+  </head>
+  <body class="font-lexend ">
+    <header>
+      <nav class=" bg-nav-bg w-full">
+        <div class="mx-28">
+            <div class="navbar">
+                <div class="navbar-start ">
+                    <div class="lg:flex ">
+                        <a id="goButton" class="btn  rounded-md bg-barn-primary text-lg font-semibold px-7">Blog
+                          </span>
+                        </a>
+                      </div>
+        
+                  </div>
+                  <div class="navbar-center">
+                    <a class="btn btn-ghost text-xl font-semibold">Donate Bangladesh</a>
+                  </div>
+                  <div class="navbar-end">
+                    <button class="btn btn-ghost btn-circle">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+            </div>
+        </div>
+      </nav>
+      <div class="flex w-full justify-center gap-4">
+        <div class="lg:flex ">
+            <a id="btn1" class="btn toggle-btn rounded-md bg-barn-primary text-lg font-semibold px-7">Donation
+              </span>
+            </a>
+          </div>
+          <div class="lg:flex ">
+            <a id="btn2" class="btn toggle-btn rounded-md bg-gray-200 text-lg text-slate-800 font-medium px-7">History
+              </span>
+            </a>
+          </div>
+      </div>
+    </header>
+    <main>
+
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
