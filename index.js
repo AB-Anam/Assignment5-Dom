@@ -31,3 +31,51 @@ buttons.forEach(button => {
       }
   });
 });
+
+document.getElementById('donate-Noakhali-flood').addEventListener('click',function(event){
+  event.preventDefault();
+  const donateInput = document.getElementById('donateInput1').value;
+  donation(donateInput, 'totalDonation1');
+})
+document.getElementById('feniFlood').addEventListener('click',function(event){
+  event.preventDefault();
+  const donateInput = document.getElementById('donateInput2').value;
+  donation(donateInput,'totalDonation2');
+})
+document.getElementById('quotaMovement').addEventListener('click',function(event){
+  event.preventDefault();
+  const donateInput = document.getElementById('donateInput3').value;
+  donation(donateInput, 'totalDonation3');
+})
+
+//common function for event Listeners
+function donation(donate, totalDonation){
+  const donateInputNumber = parseFloat(donate);
+  console.log(donateInputNumber);
+
+  const balance = getText('accountBalance');
+  const newBalance = balance - donateInputNumber;
+  showText('accountBalance', newBalance);
+
+  const totalDonationAmount = getText(totalDonation);
+  console.log(totalDonationAmount)
+  const newDonationBalance = totalDonationAmount + donateInputNumber;
+  console.log(newDonationBalance);
+  showText(totalDonation, newDonationBalance);
+}
+
+//common function to get innerText and parse float
+function getText(idName)
+{
+  const text = document.getElementById(idName).innerText;
+  const textNumber = parseFloat(text);
+  return textNumber;
+}
+
+//common function to show updated text
+function showText(idName , updatedText) {
+  document.getElementById(idName).innerText = updatedText;
+};
+
+
+
