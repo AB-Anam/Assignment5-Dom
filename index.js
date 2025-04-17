@@ -31,33 +31,13 @@ buttons.forEach(button => {
       }
        else if (button.id === 'btn2') 
         {
-        document.getElementById('main').classList.add('hidden');
-        document.getElementById('history-container').classList.remove('hidden');
+          document.getElementById('history-container').classList.remove('hidden');
+          document.getElementById('main').classList.add('hidden');
       }
   });
 });
 
-// document.getElementById('donate-Noakhali-flood').addEventListener('click',function(event){
-//   event.preventDefault();
-//   const donateInput = getInput('donateInput1');
-//   const donationId1 =  getText('noakhali');
-//   donation(donateInput, 'totalDonation1', donationId1);
-// })
 
-// document.getElementById('feniFlood').addEventListener('click',function(event){
-//   event.preventDefault();
-//   const donateInput = getInput('donateInput2');
-//   const donationId2 =  getText('feni');
-//   donation(donateInput, 'totalDonation2', donationId2);
-// })
-
-// document.getElementById('quotaMovement').addEventListener('click',function(event){
-//   event.preventDefault();
-//   const donateInput = getInput('donateInput3');
-//   const donationId3 =  getText('quota');
-  
-//   donation(donateInput, 'totalDonation3', donationId3);
-// })
 document.getElementById('donate-Noakhali-flood').addEventListener('click', function (event) {
   event.preventDefault();
   handleDonation('donateInput1', 'noakhali', 'totalDonation1');
@@ -79,13 +59,13 @@ function handleDonation(inputId, donationLabelId, totalId) {
   const donateInput = getInput(inputId);
   const donationId = getText(donationLabelId);
 
-  // ✅ Validate input
+  //  Validate input
   if (isNaN(donateInput) || donateInput <= 0) {
-    alert("❌ Please enter a valid donation amount.");
+    alert("Please enter a valid donation amount.");
     return;
   }
 
-  // ✅ Proceed if valid
+  //  Proceed if valid
   donation(donateInput, totalId, donationId);
   showModal();
 }
