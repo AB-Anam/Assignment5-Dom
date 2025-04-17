@@ -82,6 +82,8 @@ function donation(donateInputNumber, totalDonation, donationId){
   const newDonationBalance = totalDonationAmount + donateInputNumber;
   showText(totalDonation, newDonationBalance);
   history(donateInputNumber, newBalance, donationId);
+
+  hideNoDonationsMessage();
 }
 
 //common function to get innerText and parse float
@@ -134,6 +136,8 @@ function history(donation, balance, donationId) {
   container.appendChild(p);
 }
 
+
+
 function showModal() {
   const modal = document.getElementById('success-modal');
   if (modal) {
@@ -154,4 +158,23 @@ function showModal() {
   }
 }
 
+//if someone go to history without donating
+
+const historyContainer = document.getElementById('history-container');
+const message = document.getElementById('no-donations-message');
+
+if (historyContainer.childElementCount === 0) {
+    // No transaction history, show default message
+    message.classList.remove('hidden'); // Show the "You have not donated anything" message
+} else {
+    message.classList.add('hidden'); // Hide the default message
+}
+
+//hide the message
+function hideNoDonationsMessage() {
+  const message = document.getElementById('no-donations-message');
+  if (message) {
+      message.classList.add('hidden'); // Hide the "no donations" message
+  }
+}
 

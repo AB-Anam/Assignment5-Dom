@@ -37,18 +37,33 @@
         }
     </style>
 </head>
-<body>
-    <header class="mx-28">
+<body class="font-lexend">
+    <header class="bg-nav-bg w-full mb-4 py-2 shadow-sm shadow-slate-400 ">
+      <div class="mx-28">
         <nav class="navbar">
-            <div class="navbar-start ">
-                <div class="lg:flex ">
-                    <a id="backButton" class="btn  rounded-md bg-barn-primary text-lg font-semibold px-7">Home
-                      </span>
-                    </a>
-                  </div>
-    
-              </div>
-        </nav>
+          <div class="navbar-start ">
+              <div class="lg:flex ">
+                  <a id="backButton" class="btn  rounded-md bg-barn-primary text-lg font-semibold px-7">Home
+                    </span>
+                  </a>
+                </div>
+  
+            </div>
+            <div class="navbar-center">
+              <img src="./assets/logo.png" alt="">
+              <a class="btn btn-ghost text-xl font-semibold">Donate Bangladesh</a>
+            </div>
+
+            <div class="navbar-end">
+              <button class="btn btn-ghost btn-circle">
+                <img src="./assets/coin.png" alt="">
+              </button>
+              <h2 id="accountBalance" class="mx-1 text-xl">5500</h2>
+              <p class="text-slate-800 text-xl">BDT</p>
+            </div>
+      </nav>
+      </div>
+
     </header>
     <main class="mx-2 lg:mx-28 py-10">
       <div class="join join-vertical w-full lg:w-2/3 shadow-lg shadow-zinc-500 rounded-xl bg-white">
