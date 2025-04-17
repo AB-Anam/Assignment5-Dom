@@ -1,3 +1,5 @@
+
+
 const goButton = document.getElementById('goButton');
 if (goButton) {
   goButton.addEventListener('click', function () {
@@ -12,6 +14,7 @@ if (backButton) {
   });
 }
 
+// toggling Donate and History Button
 const buttons = document.querySelectorAll('.toggle-btn');
 
 buttons.forEach(button => {
@@ -28,9 +31,14 @@ buttons.forEach(button => {
       {
       document.getElementById('history-container').classList.add('hidden');
       document.getElementById('main').classList.remove('hidden');
+      const message = document.getElementById('no-donations-message');
+      if (message) {
+      message.classList.add('hidden');
+        }
       }
        else if (button.id === 'btn2') 
         {
+          toggleHistoryView();
           document.getElementById('history-container').classList.remove('hidden');
           document.getElementById('main').classList.add('hidden');
       }
@@ -167,11 +175,20 @@ function showModal() {
 const historyContainer = document.getElementById('history-container');
 const message = document.getElementById('no-donations-message');
 
-if (historyContainer.childElementCount === 0) {
-    // No transaction history, show default message
-    message.classList.remove('hidden'); // Show the "You have not donated anything" message
-} else {
-    message.classList.add('hidden'); // Hide the default message
+function toggleHistoryView() {
+  const historyContainer = document.getElementById('history-container');
+  const message = document.getElementById('no-donations-message');
+
+  // Toggle views...
+  document.getElementById('main').classList.add('hidden');
+  historyContainer.classList.remove('hidden');
+
+  // Show message only if no donations
+  if (historyContainer.childElementCount === 0) {
+    message.classList.remove('hidden');
+  } else {
+    message.classList.add('hidden');
+  }
 }
 
 //hide the message
