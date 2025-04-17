@@ -40,9 +40,9 @@
   </head>
   <body class="font-lexend ">
     <header>
-      <nav class=" bg-nav-bg w-full mb-10 py-2">
+      <nav class=" bg-nav-bg w-full mb-10 py-2 fixed top-0 shadow z-50">
         <div class="mx-0 lg:mx-36">
-            <div class="navbar">
+            <div class="navbar ">
                 <div class="navbar-start ">
                     <div class="lg:flex ">
                         <a id="goButton" class="btn  rounded-md bg-barn-primary text-lg font-semibold px-7">Blog
@@ -65,7 +65,7 @@
             </div>
         </div>
       </nav>
-      <div class="flex w-full justify-center gap-4 py-6">
+      <div class="flex w-full justify-center gap-4 mt-32 mb-8">
         <div class="lg:flex ">
             <a id="btn1" class="btn toggle-btn rounded-md bg-barn-primary text-lg font-semibold px-7">Donation
               </span>
@@ -78,7 +78,7 @@
           </div>
       </div>
     </header>
-    <main class="mx-0 lg:mx-36">
+    <main id="main" class="mx-0 lg:mx-36 ">
         <div class="hero bg-base-100 border-2 rounded-lg p-2 lg:p-1 mb-8">
             <div class="hero-content flex flex-col justify-center lg:grid lg:grid-cols-10 gap-6">
                 <div class="col-span-1 lg:col-span-4 ">
@@ -90,7 +90,7 @@
               <div class="col-span-1 lg:col-span-6">
                 <button class="btn text-slate-500"> <img src="./assets/coin.png" alt="">
                   <span id="totalDonation1">300</span> BDT </button>
-                <h1 class="text-xl font-bold">Donate for Flood at Noakhali, Bangladesh!</h1>
+                <h1 id="noakhali" class="text-xl font-bold">Donate for Flood at Noakhali, Bangladesh!</h1>
                 <p class="py-3 text-sm font-normal ">
                     The recent floods in Noakhali have caused significant damage to homes  infrastructure. 
                     Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.
@@ -113,7 +113,7 @@
               <div class="col-span-1 lg:col-span-6">
                 <button class="btn text-slate-500"> <img src="./assets/coin.png" alt="">
                   <span id="totalDonation2">150</span> BDT </button>
-                <h1 class="text-xl font-bold">Donate for Flood Relief in Feni,Bangladesh!</h1>
+                <h1 id="feni" class="text-xl font-bold">Donate for Flood Relief in Feni,Bangladesh!</h1>
                 <p class="py-3 text-sm font-normal ">
                   The recent floods in Feni have devastated local communities, leading to severe disruption and loss. 
                   Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. 
@@ -137,7 +137,7 @@
               <div class="col-span-1 lg:col-span-6">
                 <button class="btn text-slate-500"> <img src="./assets/coin.png" alt="">
                   <span id="totalDonation3">100</span> BDT </button>
-                <h1 class="text-xl font-bold">Aid for Injured in the Quota Movement!</h1>
+                <h1 id="quota" class="text-xl font-bold">Aid for Injured in the Quota Movement!</h1>
                 <p class="py-1 text-sm font-normal ">
                   The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery.
                    Please consider making a donation to support these brave individuals in their time of need.
@@ -150,6 +150,17 @@
             </div>
           </div>
     </main>
-    <script src="./index.js"></script>
+    <div id="success-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
+      <div class="bg-white rounded-xl shadow-lg p-6 max-w-sm text-center">
+        <h2 class="text-xl font-bold text-green-600 mb-2">🎉 Donation Successful!</h2>
+        <p class="text-gray-700 mb-4">Thank you for your support.</p>
+        <button id="close-modal" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">Close</button>
+      </div>
+    </div>
+    <main id="history-container" class="mx-28 py-10">
+
+  </main>
+    <script type="module" src="./index.js"></script>
+    
   </body>
 </html>

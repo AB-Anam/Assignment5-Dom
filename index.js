@@ -24,58 +24,147 @@ buttons.forEach(button => {
     button.classList.remove('bg-gray-200');
     button.classList.add('bg-barn-primary');
 
-    if (button.id === 'btn1') {
-        window.location.href = './index.html';
-      } else if (button.id === 'btn2') {
-        window.location.href = './history.html';
+    if (button.id === 'btn1') 
+      {
+      document.getElementById('history-container').classList.add('hidden');
+      document.getElementById('main').classList.remove('hidden');
+      }
+       else if (button.id === 'btn2') 
+        {
+        document.getElementById('main').classList.add('hidden');
+        document.getElementById('history-container').classList.remove('hidden');
       }
   });
 });
 
-document.getElementById('donate-Noakhali-flood').addEventListener('click',function(event){
+// document.getElementById('donate-Noakhali-flood').addEventListener('click',function(event){
+//   event.preventDefault();
+//   const donateInput = getInput('donateInput1');
+//   const donationId1 =  getText('noakhali');
+//   donation(donateInput, 'totalDonation1', donationId1);
+// })
+
+// document.getElementById('feniFlood').addEventListener('click',function(event){
+//   event.preventDefault();
+//   const donateInput = getInput('donateInput2');
+//   const donationId2 =  getText('feni');
+//   donation(donateInput, 'totalDonation2', donationId2);
+// })
+
+// document.getElementById('quotaMovement').addEventListener('click',function(event){
+//   event.preventDefault();
+//   const donateInput = getInput('donateInput3');
+//   const donationId3 =  getText('quota');
+  
+//   donation(donateInput, 'totalDonation3', donationId3);
+// })
+document.getElementById('donate-Noakhali-flood').addEventListener('click', function (event) {
   event.preventDefault();
-  const donateInput = document.getElementById('donateInput1').value;
-  donation(donateInput, 'totalDonation1');
-})
-document.getElementById('feniFlood').addEventListener('click',function(event){
+  handleDonation('donateInput1', 'noakhali', 'totalDonation1');
+});
+
+document.getElementById('feniFlood').addEventListener('click', function (event) {
   event.preventDefault();
-  const donateInput = document.getElementById('donateInput2').value;
-  donation(donateInput,'totalDonation2');
-})
-document.getElementById('quotaMovement').addEventListener('click',function(event){
+  handleDonation('donateInput2', 'feni', 'totalDonation2');
+});
+
+document.getElementById('quotaMovement').addEventListener('click', function (event) {
   event.preventDefault();
-  const donateInput = document.getElementById('donateInput3').value;
-  donation(donateInput, 'totalDonation3');
-})
+  handleDonation('donateInput3', 'quota', 'totalDonation3');
+});
+
+// Input error handler 
+
+function handleDonation(inputId, donationLabelId, totalId) {
+  const donateInput = getInput(inputId);
+  const donationId = getText(donationLabelId);
+
+  // ✅ Validate input
+  if (isNaN(donateInput) || donateInput <= 0) {
+    alert("❌ Please enter a valid donation amount.");
+    return;
+  }
+
+  // ✅ Proceed if valid
+  donation(donateInput, totalId, donationId);
+  showModal();
+}
 
 //common function for event Listeners
-function donation(donate, totalDonation){
-  const donateInputNumber = parseFloat(donate);
+function donation(donateInputNumber, totalDonation, donationId){
   console.log(donateInputNumber);
 
-  const balance = getText('accountBalance');
+  const balance = getTextFloat('accountBalance');
   const newBalance = balance - donateInputNumber;
   showText('accountBalance', newBalance);
 
-  const totalDonationAmount = getText(totalDonation);
-  console.log(totalDonationAmount)
+  const totalDonationAmount = getTextFloat(totalDonation);
   const newDonationBalance = totalDonationAmount + donateInputNumber;
-  console.log(newDonationBalance);
   showText(totalDonation, newDonationBalance);
+  history(donateInputNumber, newBalance, donationId);
 }
 
 //common function to get innerText and parse float
-function getText(idName)
+function getTextFloat(idName)
 {
   const text = document.getElementById(idName).innerText;
   const textNumber = parseFloat(text);
   return textNumber;
 }
 
+//common function to get only text
+function getText(idName)
+{
+  const text = document.getElementById(idName).innerText;
+  return text;
+}
 //common function to show updated text
 function showText(idName , updatedText) {
   document.getElementById(idName).innerText = updatedText;
 };
 
+//common function to get input
+function getInput(inputId){
+  const input = parseFloat(document.getElementById(inputId).value);
+  return input;
+}
+
+
+
+function history(donation, balance, donationId) {
+  const container = document.getElementById('history-container');
+
+  const p = document.createElement('p');
+  const bangladeshTime = new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Dhaka",
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  })
+  p.innerText = `✅ Donated ${donation} BDT at ${donationId} | 💰 New Balance: ${balance} BDT| 🕒 ${bangladeshTime}`;
+  p.className = "bg-green-100 text-green-900 font-medium p-6 rounded-md mb-2 shadow-sm";
+  container.appendChild(p);
+}
+
+function showModal() {
+  const modal = document.getElementById('success-modal');
+  if (modal) {
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+
+    // Auto-hide after 2.5 seconds
+    setTimeout(() => {
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }, 5000);
+
+    document.getElementById('close-modal').addEventListener('click', () => {
+      const modal = document.getElementById('success-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    });
+  }
+}
 
 
