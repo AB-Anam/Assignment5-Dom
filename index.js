@@ -117,12 +117,19 @@ function history(donation, balance, donationId) {
   const p = document.createElement('p');
   const bangladeshTime = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Dhaka",
-    hour: '2-digit',
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: '2-digit', 
     minute: '2-digit',
     second: '2-digit',
     hour12: true
-  })
-  p.innerText = `✅ Donated ${donation} BDT at ${donationId} | 💰 New Balance: ${balance} BDT| 🕒 ${bangladeshTime}`;
+  });
+
+ 
+  p.innerHTML = `✅ Donated ${donation} BDT at ${donationId} <br> 💰 New Balance: ${balance} BDT 
+  <br>🕒 ${bangladeshTime}`;
   p.className = "bg-green-100 text-green-900 font-medium p-6 rounded-md mb-2 shadow-sm";
   container.appendChild(p);
 }

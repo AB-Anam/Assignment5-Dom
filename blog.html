@@ -50,45 +50,81 @@
               </div>
         </nav>
     </header>
-    <main class="mx-28 py-10">
-        <div class="join join-vertical w-full">
-            <div class="collapse collapse-arrow join-item border-base-300 border">
-              <input type="radio" name="my-accordion-4" checked="checked" />
-              <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-              <div class="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border-base-300 border">
-              <input type="radio" name="my-accordion-4" />
-              <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-              <div class="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border-base-300 border">
-              <input type="radio" name="my-accordion-4" />
-              <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-              <div class="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border-base-300 border">
-              <input type="radio" name="my-accordion-4" />
-              <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-              <div class="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
-            <div class="collapse collapse-arrow join-item border-base-300 border">
-              <input type="radio" name="my-accordion-4" />
-              <div class="collapse-title text-xl font-medium">Click to open this one and close others</div>
-              <div class="collapse-content">
-                <p>hello</p>
-              </div>
-            </div>
+    <main class="mx-2 lg:mx-28 py-10">
+      <div class="join join-vertical w-full lg:w-2/3 shadow-lg shadow-zinc-500 rounded-xl bg-white">
+        <!-- Question 1 -->
+        <div class="collapse collapse-arrow join-item border-b border-gray-300 hover:bg-green-50 transition duration-300 ease-in-out">
+          <input type="radio" name="my-accordion-4" checked="checked" />
+          <div class="collapse-title text-xl font-semibold text-green-800 hover:text-green-500 transition duration-300 ease-in-out">
+            What is the DOM in JavaScript?
           </div>
+          <div class="collapse-content">
+            <p class="bg-gray-100 p-4 rounded-md shadow-sm text-gray-700">
+              The DOM (Document Object Model) is a programming interface for HTML and XML documents. 
+              It represents the page structure as a tree of objects that JavaScript can use to read, modify, 
+              and manipulate elements, attributes, and content dynamically.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Question 2 -->
+        <div class="collapse collapse-arrow join-item border-b border-gray-300 hover:bg-green-50 transition duration-300 ease-in-out">
+          <input type="radio" name="my-accordion-4" />
+          <div class="collapse-title text-xl font-semibold text-green-800 hover:text-green-500 transition duration-300 ease-in-out">
+            How do you select an element by its ID?
+          </div>
+          <div class="collapse-content">
+            <p class="bg-gray-100 p-4 rounded-md shadow-sm text-gray-700">
+              You can select an element by its ID using `document.getElementById('elementId')`. 
+              It returns the first element with the given ID, allowing you to manipulate it with JavaScript.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Question 3 -->
+        <div class="collapse collapse-arrow join-item border-b border-gray-300 hover:bg-green-50 transition duration-300 ease-in-out">
+          <input type="radio" name="my-accordion-4" />
+          <div class="collapse-title text-xl font-semibold text-green-800 hover:text-green-500 transition duration-300 ease-in-out">
+            How do you change the text of an HTML element?
+          </div>
+          <div class="collapse-content">
+            <p class="bg-gray-100 p-4 rounded-md shadow-sm text-gray-700">
+              To change text content, use `element.innerText = "New Text"` or `element.textContent = "New Text"`. 
+              This updates the visible text inside the selected element.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Question 4 -->
+        <div class="collapse collapse-arrow join-item border-b border-gray-300 hover:bg-green-50 transition duration-300 ease-in-out">
+          <input type="radio" name="my-accordion-4" />
+          <div class="collapse-title text-xl font-semibold text-green-800 hover:text-green-500 transition duration-300 ease-in-out">
+            What is `addEventListener` used for?
+          </div>
+          <div class="collapse-content">
+            <p class="bg-gray-100 p-4 rounded-md shadow-sm text-gray-700">
+              `addEventListener` attaches an event to an HTML element, like a click or keypress. 
+              It lets you define what should happen when the event occurs without overwriting existing handlers.
+            </p>
+          </div>
+        </div>
+    
+        <!-- Question 5 -->
+        <div class="collapse collapse-arrow join-item border-b border-gray-300 hover:bg-green-50 transition duration-300 ease-in-out">
+          <input type="radio" name="my-accordion-4" />
+          <div class="collapse-title text-xl font-semibold text-green-800 hover:text-green-500 transition duration-300 ease-in-out">
+            How do you create and insert a new element in the DOM?
+          </div>
+          <div class="collapse-content">
+            <p class="bg-gray-100 p-4 rounded-md shadow-sm text-gray-700">
+              Use `document.createElement('tag')` to create an element, then use `parent.appendChild(newElement)` 
+              or `parent.insertBefore()` to insert it into the DOM.
+            </p>
+          </div>
+        </div>
+      </div>
     </main>
+    
     <script src="./index.js"></script>
 </body>
 </html>
