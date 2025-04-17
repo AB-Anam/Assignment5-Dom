@@ -64,6 +64,10 @@ function handleDonation(inputId, donationLabelId, totalId) {
     alert("Please enter a valid donation amount.");
     return;
   }
+  else if (donateInput > 5500){
+    alert("You do not have this much balance.");
+    return;
+  }
 
   //  Proceed if valid
   donation(donateInput, totalId, donationId);
